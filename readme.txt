@@ -8,13 +8,10 @@
 *	framework for platform independent 2D games.
 * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Comment Cull:
-
-/** 
- * TO-DO/IDEAS
- *		Implement Levels/Level builder
- *		Implement Attack/Defend Sprites
- *		Implement Zoom/Pan Across Level
- *		Enforce access modifiers
- *		Static input handler?
- */
+ TO-DO/IDEAS
+	Implement Levels/Level builder
+	Implement Attack/Defend Sprites
+ 	Implement Zoom/Pan Across Level
+ 	Enforce access modifiers
+ 	Static input handler?
+ 
