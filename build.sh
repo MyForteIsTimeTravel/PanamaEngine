@@ -19,5 +19,5 @@ scalac src/InputHandler.scala   -classpath bin -sourcepath src -d bin
 scalac src/Launcher.scala 		-classpath bin -sourcepath src -d bin
 
 cd bin
-scala SpriteTest
+scala Launcher
 cd ../

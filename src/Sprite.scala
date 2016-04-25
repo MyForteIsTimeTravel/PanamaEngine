@@ -26,95 +26,37 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
 	 *	This series of arrays hold the image assets for different
 	 *	animation chains.
 	 */
-	var walkingUp = Array(
-		new Image("assets/" + name + "/stillUp.png"    , width, height, true, true),
-		new Image("assets/" + name + "/walkingUp_1.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingUp_2.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingUp_3.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingUp_4.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingUp_5.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingUp_6.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingUp_7.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingUp_8.png", width, height, true, true)
-	)
-	var walkingDown = Array (
-		new Image("assets/" + name + "/stillDown.png"    , width, height, true, true),
-		new Image("assets/" + name + "/walkingDown_1.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingDown_2.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingDown_3.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingDown_4.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingDown_5.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingDown_6.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingDown_7.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingDown_8.png", width, height, true, true)
-	)
-	var walkingLeft = Array (
-		new Image("assets/" + name + "/stillLeft.png"    , width, height, true, true),
-		new Image("assets/" + name + "/walkingLeft_1.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingLeft_2.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingLeft_3.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingLeft_4.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingLeft_5.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingLeft_6.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingLeft_7.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingLeft_8.png", width, height, true, true)
-	)
-	var walkingRight = Array (
-		new Image("assets/" + name + "/stillRight.png"    , width, height, true, true),
-		new Image("assets/" + name + "/walkingRight_1.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingRight_2.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingRight_3.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingRight_4.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingRight_5.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingRight_6.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingRight_7.png", width, height, true, true),
-		new Image("assets/" + name + "/walkingRight_8.png", width, height, true, true)
-	)
+	var walkingUp = Array.tabulate (9) { f =>
+        new Image ("assets/"+name+"/walkingUp_"+f+".png", width, height, true, true)
+    }
 
-	var attackingUp = Array(
-		new Image("assets/" + name + "/attackingUp_1.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingUp_2.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingUp_3.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingUp_4.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingUp_5.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingUp_6.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingUp_6.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingUp_6.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingUp_6.png", width, height, true, true)
-	)
-	var attackingDown = Array (
-		new Image("assets/" + name + "/attackingDown_1.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingDown_2.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingDown_3.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingDown_4.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingDown_5.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingDown_6.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingDown_6.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingDown_6.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingDown_6.png", width, height, true, true)
-	)
-	var attackingLeft = Array (
-		new Image("assets/" + name + "/attackingLeft_1.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingLeft_2.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingLeft_3.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingLeft_4.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingLeft_5.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingLeft_6.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingLeft_6.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingLeft_6.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingLeft_6.png", width, height, true, true)
-	)
-	var attackingRight = Array (
-		new Image("assets/" + name + "/attackingRight_1.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingRight_2.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingRight_3.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingRight_4.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingRight_5.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingRight_6.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingRight_6.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingRight_6.png", width, height, true, true),
-		new Image("assets/" + name + "/attackingRight_6.png", width, height, true, true)
-	)
+	var walkingDown = Array.tabulate (9) { f =>
+		new Image ("assets/"+name+"/walkingDown_"+f+".png", width, height, true, true)
+	}
+
+	var walkingLeft = Array.tabulate (9) { f =>
+		new Image ("assets/"+name+"/walkingLeft_"+f+".png", width, height, true, true)
+	} 
+
+	var walkingRight = Array.tabulate (9) { f =>
+		new Image ("assets/"+name+"/walkingRight_"+f+".png", width, height, true, true)
+	} 
+
+	var attackingUp = Array.tabulate (9) { f =>
+		new Image ("assets/"+name+"/walkingRight_"+f+".png", width, height, true, true)
+	} 
+
+	var attackingDown = Array.tabulate (9) { f =>
+		new Image ("assets/"+name+"/attackingDown_"+f+".png", width, height, true, true)
+	}
+
+	var attackingLeft = Array.tabulate (9) { f =>
+		new Image ("assets/"+name+"/attackingLeft_"+f+".png", width, height, true, true)
+	} 
+
+	var attackingRight = Array.tabulate (9) { f =>
+		new Image ("assets/"+name+"/attackingRight_"+f+".png", width, height, true, true)
+	} 
 
 	var activeSkin  = walkingDown
 	var activeFrame = 0
@@ -128,6 +70,8 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
 	 */
 	val friction = 3
 	val momentum = new Array[Int] (5)
+	var dominantForce = 4
+
 	var targetX  = getX
 	var targetY  = getY
 
@@ -229,6 +173,7 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
 	 *	field.
 	 */
 	def startAttack = attacking = true
+
 	def stopAttack  = attacking = false
 
 	/** 
@@ -307,17 +252,16 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
 	/** 
 	 *	updateSkin
 	 *
-	 *	@param Int
-	 *
 	 *	Sets what chain of animation the sprite should be
 	 *	in based on their current state.
 	 */
-	def updateSkin (dominantForce: Int) = {
+	def updateSkin = {
 		if (attacking) {
 			if 		(dominantForce == 1) setActiveSkin(attackingLeft)
 			else if (dominantForce == 2) setActiveSkin(attackingUp)
 			else if (dominantForce == 3) setActiveSkin(attackingRight)
 			else if (dominantForce == 4) setActiveSkin(attackingDown)
+			else if (dominantForce == 0) setActiveSkin(attackingDown)
 		}
 
 		else {
@@ -379,14 +323,10 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
 	 *	the body of the function has finished execution.
 	 */
 	override def update (currentNanoTime: Long) = {
-		var dominantForce = momentum.indexOf(momentum.max)
+		dominantForce = momentum.indexOf(momentum.max)
 		
-		updateSkin (dominantForce)
-
-		if (!attacking) {
-			setX(getX + momentum(3) - momentum(1))
-			setY(getY - momentum(2) + momentum(4))
-		}
+		setX(getX + momentum(3) - momentum(1))
+		setY(getY - momentum(2) + momentum(4))
 
 		momentum(1) = momentum(1) / friction
 		momentum(2) = momentum(2) / friction
@@ -396,8 +336,10 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
 		if (!withinRangeOfTargetX || !withinRangeOfTargetY)
 			if (!attacking) moveToTarget
 
-		if (dominantForce!=0 || attacking) {
-			if (currentNanoTime > lastUpdate + 11111111)
+		updateSkin
+
+		if (dominantForce != 0 || attacking) {
+			if (currentNanoTime > lastUpdate + 16999999)
 				setActiveFrame((activeFrame + 1) % 9)
 		} else {
 			setActiveFrame(0)
@@ -427,6 +369,10 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
 	 *	in the "SpriteTest" program
 	 */
 	def testRender (context: GraphicsContext) = {
-		context.drawImage(activeSkin(activeFrame), (screenWidth / 2) - (width / 2), (screenHeight / 2) - (height / 2))
+		context.drawImage(
+			activeSkin(activeFrame), 
+			(screenWidth / 2) - (width / 2), 
+			(screenHeight / 2) - (height / 2)
+		)
 	}
 }
