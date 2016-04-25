@@ -99,8 +99,6 @@ class InputHandler (world: Array[GraphicsObject], scene: Scene) {
 
 		if (inputBuffer.contains("SPACE"))
 			players(0).startAttack
-		else 
-			players(0).stopAttack
 
 		if (inputBuffer.contains("R"))
 			players(0).reset

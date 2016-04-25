@@ -172,9 +172,14 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
 	 *	attacking by setting the boolean "attacking"
 	 *	field.
 	 */
-	def startAttack = attacking = true
+	def startAttack = {
+		if (!attacking) {
+			setActiveFrame(0)
+			attacking = true
+		}
+	}
 
-	def stopAttack  = attacking = false
+	def stopAttack = attacking = false
 
 	/** 
 	 *	takeDamage
@@ -262,6 +267,8 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
 			else if (dominantForce == 3) setActiveSkin(attackingRight)
 			else if (dominantForce == 4) setActiveSkin(attackingDown)
 			else if (dominantForce == 0) setActiveSkin(attackingDown)
+
+			if (activeFrame == 8) stopAttack
 		}
 
 		else {
