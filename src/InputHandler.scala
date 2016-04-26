@@ -12,12 +12,8 @@ import java.util.ArrayList
  *	Player Two demonstrates "point and click" sprite
  *	manipulation.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-class InputHandler (world: Array[GraphicsObject], scene: Scene) {
+class InputHandler (player: Sprite, scene: Scene) {
 	var inputBuffer = new ArrayList[String]
-	var players     = Array (
-		world(0).asInstanceOf[Sprite],
-		world(1).asInstanceOf[Sprite]
-	)
 	
 	/** 
 	 *	When a key is pressed it is added to the input 
@@ -52,7 +48,7 @@ class InputHandler (world: Array[GraphicsObject], scene: Scene) {
 			var newX = e.getX.asInstanceOf[Int]
 			var newY = e.getY.asInstanceOf[Int]
 
-			players(1).setTarget(newX, newY)
+			player.setTarget(newX, newY)
 		}
 	})
 
@@ -66,60 +62,44 @@ class InputHandler (world: Array[GraphicsObject], scene: Scene) {
 		// PLAYER ONE
 		if (inputBuffer.contains("W")){
 			if (inputBuffer.contains("SHIFT"))
-				players(0).sprintUp	
+				player.sprintUp	
 			else 
-				players(0).moveUp		
+				player.moveUp		
 		}
 
 		if (inputBuffer.contains("A")){
 			if (inputBuffer.contains("SHIFT"))
-				players(0).sprintLeft
+				player.sprintLeft
 			else 
-				players(0).moveLeft			
+				player.moveLeft			
 		}
 
 		if (inputBuffer.contains("S")){
 			if (inputBuffer.contains("SHIFT"))
-				players(0).sprintDown
+				player.sprintDown
 			else 
-				players(0).moveDown	
+				player.moveDown	
 		}
 
 		if (inputBuffer.contains("D")){
 			if (inputBuffer.contains("SHIFT"))
-				players(0).sprintRight	
+				player.sprintRight	
 			else 
-				players(0).moveRight
+				player.moveRight
 		}
 
 		if (inputBuffer.contains("B"))
-			players(0).startBlock
+			player.startBlock
 		else 
-			players(0).stopBlock
+			player.stopBlock
 
 		if (inputBuffer.contains("SPACE"))
-			players(0).startAttack
+			player.startAttack
 
 		if (inputBuffer.contains("R"))
-			players(0).reset
-//		if (inputBuffer.contains("SPACE"))
-//			players(0).takeDamage (1)
+			player.reset
+
 		if (inputBuffer.contains("H"))
-			players(0).heal (1)
-//		if (inputBuffer.contains("Q"))
-			// pause the game
-
-		/* PLAYER TWO
-		if (inputBuffer.contains("UP"))
-			players(1).moveUp			
-		if (inputBuffer.contains("LEFT"))
-			players(1).moveLeft				
-		if (inputBuffer.contains("DOWN"))
-			players(1).moveDown			
-		if (inputBuffer.contains("RIGHT"))
-			players(1).moveRight
-		if (inputBuffer.contains("R"))
-			players(1).reset
-		*/
+			player.heal (1)
 	}
 }

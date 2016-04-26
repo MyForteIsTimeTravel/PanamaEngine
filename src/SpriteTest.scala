@@ -62,7 +62,7 @@ class SpriteTest extends Application {
 		sprite.setX(SCREENWIDTH / 4)
 		sprite.setY(SCREENWIDTH / 4)
 
-		val input = new InputHandlerTest (sprite, scene)
+		val input = new InputHandler (sprite, scene)
 
 		val loop = new AnimationTimer() {
 			override def handle(currentNanoTime: Long) = {
@@ -96,91 +96,5 @@ class SpriteTest extends Application {
 object SpriteTest {
 	def main(args: Array[String]) = {
 		Application.launch (classOf[SpriteTest], args: _*)
-	}
-}
-
-/** 
- *	InputHandlerTest
- *
- *	@param	Sprite
- *	@param 	Scene
- *
- *	Outlines a reduced implementation of the InputHandler
- *	as an inner class. Only one sprite is controlled in
- *	this implementation and MouseEvents are not recorded.
- */
-class InputHandlerTest (sprite: Sprite, scene: Scene) {
-	var inputBuffer = new ArrayList[String]
-	var players     = sprite
-	
-	/** 
-	 *	When a key is pressed it is added to the input 
-	 *	buffer via a keycode. No duplicates allowed.
-	 */
-	scene.setOnKeyPressed(new EventHandler[KeyEvent] {
-		override def handle (e: KeyEvent) = {
-			val keyCode = e.getCode().toString()
-
-			if (!inputBuffer.contains(keyCode))
-				inputBuffer.add (keyCode)
-		}
-	})
-
-	/** 
-	 *	When a key is released its keycode is removed
-	 *	from the input buffer.
-	 */
-	scene.setOnKeyReleased(new EventHandler[KeyEvent] {
-		override def handle (e: KeyEvent) = {
-			val keyCode = e.getCode().toString()
-			inputBuffer.remove(keyCode)
-		}
-	})
-
-	/** 
-	 *	checkForInput
-	 *
-	 *	This function manipulates the player based
-	 *	on the state of the input buffer.
-	 */
-	def checkForInput = {
-		// PLAYER ONE
-		if (inputBuffer.contains("W")){
-			if (inputBuffer.contains("SHIFT"))
-				sprite.sprintUp	
-			else 
-				sprite.moveUp		
-		}
-
-		if (inputBuffer.contains("A")){
-			if (inputBuffer.contains("SHIFT"))
-				sprite.sprintLeft
-			else 
-				sprite.moveLeft			
-		}
-
-		if (inputBuffer.contains("S")){
-			if (inputBuffer.contains("SHIFT"))
-				sprite.sprintDown
-			else 
-				sprite.moveDown	
-		}
-
-		if (inputBuffer.contains("D")){
-			if (inputBuffer.contains("SHIFT"))
-				sprite.sprintRight	
-			else 
-				sprite.moveRight
-		}
-
-		if (inputBuffer.contains("B"))
-			sprite.startBlock
-		else 
-			sprite.stopBlock
-
-		if (inputBuffer.contains("SPACE"))
-			sprite.startAttack
-		else 
-			sprite.stopAttack
 	}
 }

@@ -80,7 +80,7 @@ class Launcher extends Application {
 			new DialogueWindow (SCREENWIDTH, SCREENHEIGHT)
 		)
 
-		val input = new InputHandler (worldObjects, scene)
+		val input = new InputHandler (playerOne, scene)
 
 		val loop = new AnimationTimer() {
 			override def handle(currentNanoTime: Long) = {
