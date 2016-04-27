@@ -117,7 +117,7 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
      *  momentum[4] - down momentum
      */
     val friction = 3
-    val momentum = new Array[Int] (5)
+    val momentum = new Array[Int] (4)
     var dominantForce = 4
 
     var targetX  = getX
@@ -169,10 +169,10 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
      *  in the given direction by adding 2 to the 
      *  relevant element in the momentum array
      */
-    def moveLeft  = momentum(1) += 2
-    def moveRight = momentum(3) += 2
-    def moveUp    = momentum(2) += 2
-    def moveDown  = momentum(4) += 2
+    def moveLeft  = momentum(0) += 2
+    def moveRight = momentum(2) += 2
+    def moveUp    = momentum(1) += 2
+    def moveDown  = momentum(3) += 2
 
     /** 
      *  sprintLeft, sprintRight, sprintUp, sprintDown
@@ -181,10 +181,10 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
      *  in the given direction by adding 3 to the 
      *  relevant element in the momentum array
      */
-    def sprintLeft  = momentum(1) += 3
-    def sprintRight = momentum(3) += 3
-    def sprintUp    = momentum(2) += 3
-    def sprintDown  = momentum(4) += 3
+    def sprintLeft  = momentum(0) += 3
+    def sprintRight = momentum(2) += 3
+    def sprintUp    = momentum(1) += 3
+    def sprintDown  = momentum(3) += 3
 
     /** 
      *  moveToTarget
@@ -261,7 +261,7 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
      *  of images.
      */
     def setActiveSkin (texture: Array[Image]) = {
-        this.activeSkin = texture
+        activeSkin = texture
     }
 
     /** 
@@ -299,7 +299,7 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
      *  the boundry here instead of in the update method. 
      */
     def setActiveFrame (frameIndex: Int) = {
-        this.activeFrame = frameIndex
+        activeFrame = frameIndex
     }
 
     /** 
@@ -310,12 +310,10 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
      */
     def updateSkin = {
         if (attacking) {
-            if      (dominantForce == 1) setActiveSkin(attackingLeft)
-            else if (dominantForce == 2) setActiveSkin(attackingUp)
-            else if (dominantForce == 3) setActiveSkin(attackingRight)
-            else if (dominantForce == 4) setActiveSkin(attackingDown)
-            else if (dominantForce == 0) setActiveSkin(attackingDown)
-
+            if      (dominantForce == 0) setActiveSkin(attackingLeft)
+            else if (dominantForce == 1) setActiveSkin(attackingUp)
+            else if (dominantForce == 2) setActiveSkin(attackingRight)
+            else if (dominantForce == 3) setActiveSkin(attackingDown)
             /** 
              *  when the player starts their attack, they're set
              *  to frame 0. When they get to 8 they should stop
@@ -325,10 +323,10 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
         }
 
         else {
-            if      (dominantForce == 1) setActiveSkin(walkingLeft)
-            else if (dominantForce == 2) setActiveSkin(walkingUp)
-            else if (dominantForce == 3) setActiveSkin(walkingRight)
-            else if (dominantForce == 4) setActiveSkin(walkingDown)
+            if      (dominantForce == 0) setActiveSkin(walkingLeft)
+            else if (dominantForce == 1) setActiveSkin(walkingUp)
+            else if (dominantForce == 2) setActiveSkin(walkingRight)
+            else if (dominantForce == 3) setActiveSkin(walkingDown)
         }
     }
 
@@ -385,13 +383,13 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
     override def update (currentNanoTime: Long) = {
         dominantForce = momentum.indexOf(momentum.max)
         
-        setX(getX + momentum(3) - momentum(1))
-        setY(getY - momentum(2) + momentum(4))
+        setX(getX + momentum(2) - momentum(0))
+        setY(getY - momentum(1) + momentum(3))
 
+        momentum(0) = momentum(0) / friction
         momentum(1) = momentum(1) / friction
         momentum(2) = momentum(2) / friction
         momentum(3) = momentum(3) / friction
-        momentum(4) = momentum(4) / friction
 
         if (!withinRangeOfTargetX || !withinRangeOfTargetY)
             if (!attacking) moveToTarget
