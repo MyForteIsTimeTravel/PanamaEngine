@@ -14,6 +14,8 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
  TO-DO/IDEAS
+    Concurrent collision detection
+    Concurrent input handling
     Implement Levels/Level builder
     Implement Attack/Defend Sprites
     Implement Zoom/Pan Across Level
