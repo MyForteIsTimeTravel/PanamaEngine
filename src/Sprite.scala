@@ -110,14 +110,13 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
     var activeFrame = 0
 
     /** 
-     *  momentum[0] - blank
-     *  momentum[1] - left momentum
-     *  momentum[2] - up momentum
-     *  momentum[3] - right momentum
-     *  momentum[4] - down momentum
+     *  momentum[0] - left momentum
+     *  momentum[1] - up momentum
+     *  momentum[2] - right momentum
+     *  momentum[3] - down momentum
      */
-    val friction = 3
-    val momentum = new Array[Int] (4)
+    val friction      = 3
+    val momentum      = new Array[Int] (4)
     var dominantForce = 4
 
     var targetX  = getX
