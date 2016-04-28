@@ -13,8 +13,8 @@ import javafx.scene.image.Image
 class DialogueWindow (screenWidth: Int, screenHeight: Int) extends GraphicsObject {
     width  = 400
     height = 180
-    x = screenWidth - width - 20
-    y = screenHeight - height - 20
+    x      = screenWidth - width - 20
+    y      = screenHeight - height - 20
 
     val color  = Color.web("rgba(0,0,0,0.7)")
 
