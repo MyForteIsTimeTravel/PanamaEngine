@@ -41,8 +41,8 @@ class Launcher extends Application {
         val context      = canvas.getGraphicsContext2D
         val root         = new StackPane
         val scene        = new Scene      (root, SCREENWIDTH, SCREENHEIGHT)
-        val playerOne    = new Sprite     (SCREENWIDTH, SCREENHEIGHT, "spriteTestTwo")
-        val playerTwo    = new Sprite     (SCREENWIDTH, SCREENHEIGHT, "spriteTestTwo")
+        val playerOne    = new Sprite     (SCREENWIDTH, SCREENHEIGHT, "monkDude")
+        val playerTwo    = new Sprite     (SCREENWIDTH, SCREENHEIGHT, "monkDude")
         val background   = new Background (SCREENWIDTH, SCREENHEIGHT)
 
         root.getChildren.addAll(canvas)
@@ -66,7 +66,7 @@ class Launcher extends Application {
             new WorldObject (
                 SCREENWIDTH / 2, 
                 SCREENHEIGHT / 2, 
-                new Image("assets/world/misc/well_1.png")
+                new Image("assets/world/stoneWell_1.png")
             )
         )
 
@@ -79,8 +79,8 @@ class Launcher extends Application {
          *  pane.
          */
         val hudObjects = Array(
-            new PlayerInfo     (activePlayer.asInstanceOf[Sprite]),
-            new MiniMap        (activePlayer.asInstanceOf[Sprite], SCREENWIDTH, SCREENHEIGHT),
+            new PlayerInfo     (playerOne),
+            new MiniMap        (playerOne, SCREENWIDTH, SCREENHEIGHT),
             new DialogueWindow (SCREENWIDTH, SCREENHEIGHT)
         )
 
