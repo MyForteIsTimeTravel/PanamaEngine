@@ -22,3 +22,7 @@
     Implement Zoom/Pan Across Level
     Enforce access modifiers
     Static input handler?
+
+ISSUES
+	When moving left, players don't animate.
+	Navigating with the mouse causes animation glitch when moving Right
