@@ -14,6 +14,7 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
  TO-DO/IDEAS
+    .jar executable
     Concurrent collision detection
     Concurrent input handling
     Implement Levels/Level builder
