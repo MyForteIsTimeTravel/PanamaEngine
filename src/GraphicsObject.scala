@@ -5,13 +5,16 @@ import javafx.scene.paint.CycleMethod
 import javafx.scene.paint.Color
 import java.util.ArrayList
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *  GraphicsObject trait
  *  
  *  This trait provides coordinates and size fields and
  *  methods as well as a defalut update and renderShadow
  *  method. The render method must be specified by each
  *  overriding object
+ *
+ *  @author Ryan Needham
+ *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 trait GraphicsObject {
     var x:      Int = _

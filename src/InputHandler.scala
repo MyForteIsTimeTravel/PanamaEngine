@@ -4,13 +4,16 @@ import javafx.scene.Scene
 import javafx.event.EventHandler
 import java.util.ArrayList
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *  InputHandler Class
  *  
  *  This class deals with user input from the keyboard
  *  and mouse. Player One exhibits WASD controls and 
  *  Player Two demonstrates "point and click" sprite
  *  manipulation.
+ *
+ *  @author Ryan Needham
+ *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 class InputHandler (player: Sprite, scene: Scene) {
     var inputBuffer = new ArrayList[String]

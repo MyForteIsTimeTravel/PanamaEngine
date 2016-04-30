@@ -19,7 +19,7 @@ import java.util.ArrayList
 import java.awt.Toolkit
 import java.awt.Dimension
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *  SpriteTest class
  *  
  *  This class sets up the canvas, initialises the 
@@ -27,6 +27,9 @@ import java.awt.Dimension
  *  manner to the launcher, but this holds the player
  *  in place on a smaller window and outputs debug
  *  information about the sprite.
+ *
+ *  @author Ryan Needham
+ *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 class SpriteTest extends Application {
 

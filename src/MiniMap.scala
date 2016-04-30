@@ -3,12 +3,15 @@ import javafx.scene.paint.Color
 import javafx.scene.canvas.GraphicsContext
 import javafx.scene.image.Image
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *  MiniMap class
  *  
  *  Renders a hud element in the top right hand corner
  *  of the screen. Intended to hold the map of the world
  *  but currently just outputs player debug info.
+ *
+ *  @author Ryan Needham
+ *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 class MiniMap (player: Sprite, screenWidth: Int, screenHeight: Int) extends GraphicsObject {
     width  = 260

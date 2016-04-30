@@ -3,12 +3,15 @@ import javafx.scene.paint.Color
 import javafx.scene.canvas.GraphicsContext
 import javafx.scene.image.Image
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *  PlayerInfo class
  *
  *  This class will hold the players health, energy, 
  *  WhateverTheFuckElse as well as the name and portrait
  *  of the player. 
+ *
+ *  @author Ryan Needham
+ *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 class PlayerInfo (player: Sprite) extends GraphicsObject {
     x      = 20

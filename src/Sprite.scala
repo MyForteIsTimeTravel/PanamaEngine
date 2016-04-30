@@ -2,12 +2,15 @@ import javafx.scene.canvas.GraphicsContext
 import javafx.animation.AnimationTimer
 import javafx.scene.image.Image
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *  Sprite class
  *
  *  This classes encapsulates player data, functionality
  *  and animation code. Assets are taken from the folder
  *  baring the instances name e.g. "testSpriteTwo"
+ *
+ *  @author Ryan Needham
+ *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsObject {
     x             = screenWidth / 2

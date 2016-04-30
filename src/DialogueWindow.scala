@@ -3,12 +3,15 @@ import javafx.scene.paint.Color
 import javafx.scene.canvas.GraphicsContext
 import javafx.scene.image.Image
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *  DialogueWindow class
  *  
  *  This class renders a GUI element in the bottom left
  *  corner of the screen. It is envisioned that this
  *  will provide space for in-game chat
+ *
+ *  @author Ryan Needham
+ *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 class DialogueWindow (screenWidth: Int, screenHeight: Int) extends GraphicsObject {
     width  = 400

@@ -10,13 +10,16 @@ import javafx.stage.Stage
 import java.awt.Toolkit
 import java.awt.Dimension
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *  Launcher class
  *
  *  notes       - change to "Game class"?
  *  
  *  This class sets up the canvas, initialises the 
  *  game world and runs the game loop. 
+ *
+ *  @author Ryan Needham
+ *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 class Launcher extends Application {
 

@@ -1,6 +1,15 @@
 import javafx.scene.canvas.GraphicsContext
 import javafx.scene.image.Image
 
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *  SpriteTest class
+ *  
+ *  Holds an image representing a world object, has the
+ *  ability to render this image based on current state
+ *
+ *  @author Ryan Needham
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 class WorldObject (posX: Int, posY: Int, skin: Image) extends GraphicsObject {
 	x = posX
 	y = posY

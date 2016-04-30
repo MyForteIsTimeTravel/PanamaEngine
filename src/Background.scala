@@ -2,11 +2,14 @@ import javafx.scene.canvas.GraphicsContext
 import javafx.scene.image.Image
 import javafx.scene.paint.Color
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+/** * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *  Background class
  *  
  *  background holds a default image that is rendered 
  *  across the entire screen. 
+ *
+ *  @author Ryan Needham
+ *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 class Background (screenWidth: Int, screenHeight: Int) extends GraphicsObject {
     x        = 0
