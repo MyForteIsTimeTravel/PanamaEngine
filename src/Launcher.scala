@@ -66,7 +66,7 @@ class Launcher extends Application {
             new WorldObject (
                 SCREENWIDTH / 2, 
                 SCREENHEIGHT / 2, 
-                new Image("assets/world/stoneWell_1.png")
+                new Image("assets/world/StoneStructures/stoneWell_1.png")
             )
         )
 
