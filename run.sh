@@ -1,5 +1,5 @@
 #!/bin/bash
 
 cd bin
-scala SpriteTest
+scala game.Launcher
 cd ../

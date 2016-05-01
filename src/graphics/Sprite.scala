@@ -15,17 +15,26 @@ import javafx.scene.image.Image
  *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsObject {
-    x             = screenWidth / 2
+    x             = screenWidth  / 2
     y             = screenHeight / 2
     width         = 64
     height        = 64
+
     val name      = id
     var health    = 10
     var energy    = 10
     var blocking  = false
     var attacking = false
-    val face      = new Image("assets/" + name + "/face.png", 32, 32, true, true)
-    var lastUpdate: Long = 0 // experimenting with delta timing
+
+    var lastUpdate: Long = 0
+
+    val face      = new Image (
+        "assets/" + name + "/face.png", 
+        32, 
+        32, 
+        true, 
+        true
+    )
 
     /** 
      *  This series of arrays hold the image assets for different
@@ -115,20 +124,18 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
     var activeFrame = 0
 
     /** 
-     *  momentum[0] - no momentum
-     *  momentum[1] - left momentum
-     *  momentum[2] - up momentum
-     *  momentum[3] - right momentum
-     *  momentum[4] - down momentum
+     *  TO DO
+     *
+     *      implement momentum as a hashmasp
+     *
      */
-    val friction      = 3
-    val momentum      = new Array[Int] (5)
+    val momentum      = new Array[Int](5)
+
     var dominantForce = 4
+    val friction      = 3
 
-    var targetX  = getX
-    var targetY  = getY
-
-    momentum.foreach (x => 0)
+    var targetX = getX
+    var targetY = getY
 
     /** 
      *  reset
@@ -137,7 +144,7 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
      *  middle of the screen
      */
     def reset = { 
-        x = ((screenWidth - width / 2) / 2)
+        x = ((screenWidth  - width  / 2) / 2)
         y = ((screenHeight - height / 2) / 2)
     }
 
@@ -280,13 +287,13 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
      *  current facing is not one of the animation chains.
      */
     def getActiveSkin: String = {
-        if (activeSkin == walkingUp || activeSkin == attackingUp )
+        if (activeSkin == walkingUp || activeSkin == attackingUp)
             return "up"
-        else if (activeSkin == walkingDown || activeSkin == attackingDown )
+        else if (activeSkin == walkingDown || activeSkin == attackingDown)
             return "down"
-        else if (activeSkin == walkingLeft || activeSkin == attackingLeft )
+        else if (activeSkin == walkingLeft || activeSkin == attackingLeft)
             return "left"
-        else if (activeSkin == walkingRight || activeSkin == attackingRight )
+        else if (activeSkin == walkingRight || activeSkin == attackingRight)
             return "right"
         else 
             return "ERROR"
@@ -315,11 +322,11 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
      */
     def updateSkin = {
         if (attacking) {
-            if      (dominantForce == 0) setActiveSkin(attackingDown)
-            else if (dominantForce == 1) setActiveSkin(attackingLeft)
-            else if (dominantForce == 2) setActiveSkin(attackingUp)
-            else if (dominantForce == 3) setActiveSkin(attackingRight)
-            else if (dominantForce == 4) setActiveSkin(attackingDown)
+            if      (dominantForce == 0) setActiveSkin (attackingDown)
+            else if (dominantForce == 1) setActiveSkin (attackingLeft)
+            else if (dominantForce == 2) setActiveSkin (attackingUp)
+            else if (dominantForce == 3) setActiveSkin (attackingRight)
+            else if (dominantForce == 4) setActiveSkin (attackingDown)
             /** 
              *  when the player starts their attack, they're set
              *  to frame 0. When they get to 8 they should stop
@@ -329,10 +336,10 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
         }
 
         else {
-            if      (dominantForce == 1) setActiveSkin(walkingLeft)
-            else if (dominantForce == 2) setActiveSkin(walkingUp)
-            else if (dominantForce == 3) setActiveSkin(walkingRight)
-            else if (dominantForce == 4) setActiveSkin(walkingDown)
+            if      (dominantForce == 1) setActiveSkin (walkingLeft)
+            else if (dominantForce == 2) setActiveSkin (walkingUp)
+            else if (dominantForce == 3) setActiveSkin (walkingRight)
+            else if (dominantForce == 4) setActiveSkin (walkingDown)
         }
     }
 
@@ -392,27 +399,21 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
         setX(getX + momentum(3) - momentum(1))
         setY(getY - momentum(2) + momentum(4))
 
-            /** 
-     *  momentum[0] - no momentum
-     *  momentum[1] - left momentum
-     *  momentum[2] - up momentum
-     *  momentum[3] - right momentum
-     *  momentum[4] - down momentum
-     */
-
         momentum(1) = momentum(1) / friction
         momentum(2) = momentum(2) / friction
         momentum(3) = momentum(3) / friction
         momentum(4) = momentum(4) / friction
 
+//      momentum.foreach (x => x / friction) // wotthefuck
+
         if (!withinRangeOfTargetX || !withinRangeOfTargetY)
-            if (!attacking) moveToTarget
+            moveToTarget
 
         updateSkin
 
         if (dominantForce != 0 || attacking) {
             if (currentNanoTime > lastUpdate + 16999999)
-                setActiveFrame((activeFrame + 1) % 9)
+                setActiveFrame ((activeFrame + 1) % 9)
         } else {
             setActiveFrame(0)
         }
@@ -429,7 +430,7 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
      *  at the sprites x/y coordinates
      */
     def render (context: GraphicsContext) = {
-        context.drawImage(activeSkin(activeFrame), x, y)
+        context.drawImage (activeSkin (activeFrame), x, y)
     }
 
     /** 
@@ -441,9 +442,9 @@ class Sprite (screenWidth: Int, screenHeight: Int, id: String) extends GraphicsO
      *  in the "SpriteTest" program
      */
     def testRender (context: GraphicsContext) = {
-        context.drawImage(
+        context.drawImage (
             activeSkin(activeFrame), 
-            (screenWidth / 2) - (width / 2), 
+            (screenWidth  / 2) - (width  / 2), 
             (screenHeight / 2) - (height / 2)
         )
     }

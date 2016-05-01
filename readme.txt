@@ -1,19 +1,19 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-*   Panama Engine
 *
-*   prototype 0.1
+*   Panama Engine | Prototype 0.1
 *
-*       /\
-*      /  \
-*      \  /
-*       \/
+*          /\
+*         /  \
+*         \  /
+*          \/
 *
 *   Exploring 2D game development in scala using javaFX
 *   canvas. The goal is an engine that can be used as a 
 *   framework for platform independent 2D games.
+*
 * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
- TO-DO/IDEAS
+ TO DO/IDEAS
     .jar executable
     Concurrent collision detection
     Concurrent input handling
@@ -22,7 +22,3 @@
     Implement Zoom/Pan Across Level
     Enforce access modifiers
     Static input handler?
-
-ISSUES
-	When moving left, players don't animate.
-	Navigating with the mouse causes animation glitch when moving Right
