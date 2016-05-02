@@ -12,8 +12,8 @@ import javafx.stage.Stage
 import java.awt.Toolkit
 import java.awt.Dimension
 
+import world.worlds._
 import graphics._
-import world._
 import input._
 import hud._
 

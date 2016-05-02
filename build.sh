@@ -1,16 +1,5 @@
 #!/bin/bash
 
-# clear class files
-cd bin
-rm *.class
-rm game/*.class
-rm graphics/*.class
-rm hud/*.class
-rm input/*.class
-rm test/*.class
-rm world/*.class
-cd ../
-
 # graphics
 scalac src/graphics/GraphicsObject.scala -classpath bin -sourcepath src -d bin
 scalac src/graphics/Background.scala     -classpath bin -sourcepath src -d bin
@@ -22,9 +11,16 @@ scalac src/hud/MiniMap.scala 		     -classpath bin -sourcepath src -d bin
 scalac src/hud/DialogueWindow.scala      -classpath bin -sourcepath src -d bin
 
 # world stuff
-scalac src/world/WorldObject.scala       -classpath bin -sourcepath src -d bin
-scalac src/world/Level.scala 		     -classpath bin -sourcepath src -d bin
-scalac src/world/LevelBuilder.scala      -classpath bin -sourcepath src -d bin
+scalac src/world/worlds/WorldObject.scala       -classpath bin -sourcepath src -d bin
+scalac src/world/worlds/Level.scala 		     -classpath bin -sourcepath src -d bin
+
+scalac src/world/worldbuilder/Toolbar.scala       -classpath bin -sourcepath src
+scalac src/world/worldbuilder/ConsoleWindow.scala -classpath bin -sourcepath src
+scalac src/world/worldbuilder/FileExplorer.scala   -classpath bin -sourcepath src
+scalac src/world/worldbuilder/ObjectInspector.scala -classpath bin -sourcepath src
+scalac src/world/worldbuilder/WorldView.scala       -classpath bin -sourcepath src
+
+scalac src/world/worldbuilder/LevelBuilder.scala      -classpath bin -sourcepath src -d bin
 
 # input
 scalac src/input/InputHandler.scala      -classpath bin -sourcepath src -d bin

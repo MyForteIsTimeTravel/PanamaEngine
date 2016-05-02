@@ -1,4 +1,4 @@
-package world
+package world.worldbuilder
 
 import javafx.application.Application
 import javafx.scene.canvas.Canvas
@@ -35,12 +35,20 @@ class LevelBuilder extends Application {
         val screenSize   = Toolkit.getDefaultToolkit.getScreenSize
         val SCREENWIDTH  = screenSize.getWidth.asInstanceOf[Int]
         val SCREENHEIGHT = screenSize.getHeight.asInstanceOf[Int]
-        val canvas       = new Canvas     (SCREENWIDTH, SCREENHEIGHT)
-        val context      = canvas.getGraphicsContext2D
+
+        val worldView    = new WorldView
+        val toolbar      = new Toolbar
+        val console      = new ConsoleWindow
+        val fileExplorer = new FileExplorer
+        val objectInspector = new ObjectInspector
         val root         = new BorderPane
         val scene        = new Scene      (root, SCREENWIDTH, SCREENHEIGHT)
 
-        root.getChildren.addAll(canvas)
+        root.setTop    (toolbar)
+        root.setLeft   (fileExplorer)
+        root.setRight  (objectInspector)
+        root.setBottom (console)
+        root.setCenter (worldView)
 
         stage.setTitle      ("Panama Engine | Level Builder")
 //      stage.setFullScreen (true)
